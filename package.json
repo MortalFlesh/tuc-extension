@@ -39,20 +39,29 @@
     "activationEvents": [
         "*"
     ],
-    "main": "./out/extension.js",
+    "main": "./out/Extension.js",
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "lint": "eslint . --ext .ts,.tsx,.json",
-        "watch": "tsc -watch -p ./"
+        "watch:ts": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "build": "fable-splitter --config splitter.config.js",
+        "watch": "yarn run build --watch"
     },
     "devDependencies": {
+        "@babel/core": "^7.11.6",
+        "@babel/plugin-transform-modules-commonjs": "^7.10.4",
         "@types/node": "^12.12.0",
         "@types/vscode": "^1.32.0",
         "@typescript-eslint/eslint-plugin": "^3.0.2",
         "@typescript-eslint/parser": "^3.0.2",
         "eslint": "^7.1.0",
         "eslint-plugin-json": "^2.1.2",
-        "typescript": "^4.0.2"
+        "fable-compiler": "^2.13.0",
+        "fable-splitter": "^2.2.1",
+        "jest": "^26.5.0",
+        "typescript": "^4.0.2",
+        "vscode": "^1.1.37"
     }
 }

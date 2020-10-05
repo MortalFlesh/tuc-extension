@@ -1,0 +1,12 @@
+framework: netstandard2.0
+
+source https://api.nuget.org/v3/index.json
+storage:none
+
+# nuget Fable.Import.Jest // Use when ready for Fable2
+github nojaf/fable-jest:fable2 fable/Bindings.fs
+github nojaf/fable-jest:fable2 fable/Exports.fs
+github nojaf/fable-jest:fable2 fable/Matchers.fs
+nuget FSharp.Core redirects:force
+nuget Fable.Import.VSCode
+nuget Fable.Parsimmon
