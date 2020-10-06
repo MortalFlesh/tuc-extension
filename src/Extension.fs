@@ -7,9 +7,9 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.Import.vscode
 open Ionide.VSCode.Helpers
-open Ionide.VSCode.FSharp
+//open Ionide.VSCode.FSharp  - code ionidu
 open Fable.Import.Node.ChildProcess
-open Debugger
+//open Debugger - ?
 open Fable.Import.vscode
 
 (* type Api =
@@ -19,7 +19,7 @@ open Fable.Import.vscode
       GetProjectLauncher : OutputChannel -> DTO.Project -> (string -> Fable.Import.JS.Promise<ChildProcess>) option
       DebugProject : DTO.Project -> string [] -> Fable.Import.JS.Promise<unit> } *)
 
-let activate (context : ExtensionContext) : Fable.Import.JS.Promise<Api> =
+let activate (context : ExtensionContext) = // : Fable.Import.JS.Promise<Api> =
 
     (* let resolve = "FSharp.resolveNamespaces" |> Configuration.get false
     let solutionExplorer = "FSharp.enableTreeView" |> Configuration.get true
