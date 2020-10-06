@@ -36,7 +36,7 @@ It auto-complete a keywords, participants and other parts of Tuc.
 
 ### Building
 
-Fork, from the github interface https://github.com/MortalFlesh/tuc-extension
+Fork, from the github interface https://github.com/TypedUseCase/tuc-extension
  - if you don't use a certificate for committing to github:
 ```bash
 git clone https://github.com/YOUR_GITHUB_USER/tuc-extension.git
