@@ -27,12 +27,15 @@
 
         <None Include="paket.references" />
 
-        <!-- <Compile Include="Imports/Node.Util.fs" />
+        <Compile Include="Imports/Node.Util.fs" />
         <Compile Include="Core/DTO.fs" />
         <Compile Include="Core/Utils.fs" />
+        <!--
         <Compile Include="Core/Environment.fs" />
         <Compile Include="Core/Logging.fs" />
+        -->
         <Compile Include="Core/LanguageService.fs" />
+        <!--
         <Compile Include="Core/Project.fs" />
         <Compile Include="Components/Diagnostics.fs" />
         <Compile Include="Components/Gitignore.fs" />
@@ -55,7 +58,8 @@
         <Compile Include="Components/HighlightingProvider.fs" />
         <Compile Include="Components/FSharpLiterate.fs" />
         <Compile Include="Components/PipelineHints.fs" />
-        <Compile Include="fsharp.fs" /> -->
+        <Compile Include="fsharp.fs" />
+        -->
         <Compile Include="Extension.fs" />
     </ItemGroup>
 

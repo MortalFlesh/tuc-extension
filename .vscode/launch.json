@@ -10,9 +10,22 @@
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
-            "args": ["--extensionDevelopmentPath=${workspaceRoot}/release" ],
+            "args": [
+                "--extensionDevelopmentPath=${workspaceRoot}/release"
+            ],
             "preLaunchTask": "Extension Build",
             "stopOnEntry": false,
+            "sourceMaps": false
+        },
+        {
+            "name": "Launch Only",
+            "type": "extensionHost",
+            "runtimeExecutable": "${execPath}",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceRoot}/release"
+            ],
+            "stopOnEntry": false,
+            "request": "launch",
             "sourceMaps": false
         }
     ]
