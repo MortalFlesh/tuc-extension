@@ -118,7 +118,7 @@ module LanguageService =
         client <- Some cl
         cl
 
-    let private readyClient (cl: LanguageClient) =
+    (* let private readyClient (cl: LanguageClient) =
         cl.onReady ()
         |> Promise.onSuccess (fun _ ->
             cl.onNotification("fsharp/notifyWorkspace", (fun (a: Types.PlainNotification) ->
@@ -151,17 +151,48 @@ module LanguageService =
 
                 ()
             ))
-        )
+        ) *)
+
+    let provideKeyWords () =
+        let selector =
+            createObj [
+                "language" ==> TucLanguageShortName
+            ] |> unbox<DocumentSelector>
+
+        let provider =
+            { new CompletionItemProvider with
+                member this.provideCompletionItems(document, position, token) =
+                    let item = CompletionItem("hello-world")
+                    //item.label <- "hello-world"
+                    item.kind <- CompletionItemKind.Property
+                    item.insertText <- (U2.Case2 <| SnippetString "Hello ${1:name}!")
+                    item.detail <- "Hello world from F#!"
+
+                    let x: ResizeArray<CompletionItem> =
+                        ResizeArray([
+                            item
+                        ])
+                    x
+                    |> U2.Case1
+                    // |> unbox<ResizeArray<CompletionItem>>
+
+                member this.resolveCompletionItem(item, token) = item |> U2.Case1
+            }
+
+        let tucKeywordProvider = vscode.languages.registerCompletionItemProvider(selector, provider)
+        tucKeywordProvider
 
     let start (c : ExtensionContext) =
         promise {
-            let! startOpts = getOptions ()
+            (* let! startOpts = getOptions ()
             let cl = createClient startOpts
             c.subscriptions.Add (cl.start ())
-            let! _ = readyClient cl
+            let! _ = readyClient cl *)
+
+            let tucKeywordProvider = provideKeyWords()
+            c.subscriptions.Add(tucKeywordProvider)
 
             return ()
-
         }
 
     let stop () =
